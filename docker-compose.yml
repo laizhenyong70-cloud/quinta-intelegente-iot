@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  # MQTT Middleware (data hub)
+  emqx:
+    image: emqx/emqx:latest
+    container_name: pig_farm_mq
+    ports:
+      - "1883:1883"   #Sensor connection port# MQTT broker
+      - "18085:18083" #Administration backend port (admin/public) # EMQX dashboard
+      - "8083:8083"
+    restart: always
+
+  #influxdb(Time series database)
+  influxdb:
+    image: influxdb:2.7
+    container_name: pig_farm_db
+    ports:
+      - "8086:8086"
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=admin
+      - DOCKER_INFLUXDB_INIT_PASSWORD=password123
+      - DOCKER_INFLUXDB_INIT_ORG=myfarm
+      - DOCKER_INFLUXDB_INIT_BUCKET=sensor_data
+    restart: always
+
