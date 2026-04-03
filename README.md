@@ -49,10 +49,7 @@ quinta_intelegente/
         simulator.py # MQTT data simulator
     docker-compose.yml
     requirements.txt
-
-
-│
-└── README.md
+    README.md
 
 ---
 
