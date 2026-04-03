@@ -34,20 +34,23 @@ Simulator → MQTT Broker (EMQX) → Backend (Flask) → SQLite Database → API
 
 ## Project Structure
 quinta_intelegente/
-│
-├── server/
-│ ├── app.py # Flask application
-│ ├── database.py # Database operations
-│
-├── simulator/
-│ └── simulator.py # MQTT data simulator
-│
-├── data/
-│ └── app.db # SQLite database (ignored in Git)
-│
-├── frontend/
-│ ├── index.html
-│ ├── app.js
+    data/
+        app.db # SQLite database (ignored in Git)
+    frontend/
+        index.html
+        app.js
+        style.css
+    server/
+        app.py # Flask application
+        database.py # Database operations
+        routes.py
+        service.py
+    simulator/
+        simulator.py # MQTT data simulator
+    docker-compose.yml
+    requirements.txt
+
+
 │
 └── README.md
 
